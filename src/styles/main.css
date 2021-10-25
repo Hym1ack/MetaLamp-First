@@ -1,3 +1,6 @@
+@import '~normalize.css';
+@import 'font.css';
+
 html {
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
