@@ -185,3 +185,7 @@ li {
 }
 
 /* main */
+
+.main__form {
+  background-color: #eee;
+}
