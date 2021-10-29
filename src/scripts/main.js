@@ -1,7 +1,6 @@
 import num from './test';
 
-import '../styles/main.css'
-
+import '../styles/main.scss';
 console.log(num);
 
 console.log(num * 3);
