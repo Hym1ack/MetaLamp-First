@@ -1,7 +1,9 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 const isDev = process.env.NODE_ENV === 'development';
 const isProd = !isDev;
@@ -25,11 +27,13 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'styles/[name].[contenthash].css',
     }),
+    new MiniCssExtractPlugin(),
   ],
   optimization: {
     splitChunks: {
       chunks: 'all',
     },
+    minimizer: [new CssMinimizerPlugin()],
   },
   devServer: {
     port: 4200,
