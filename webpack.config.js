@@ -1,61 +1,95 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
-const isDev = process.env.NODE_ENV === 'development';
-const isProd = !isDev;
+let mode = 'development';
+let isProd = false;
+if (process.env.NODE_ENV === 'production') {
+  mode = 'production';
+  isProd = true;
+}
+
+console.log(mode + ' mode');
 
 module.exports = {
+  mode: mode,
   context: path.resolve(__dirname, 'src'),
-  mode: 'development',
   entry: './scripts/main.js',
   output: {
+    clean: true,
     filename: 'scripts/[name].[contenthash].js',
+    assetModuleFilename: 'assets/[hash][ext][query]',
     path: path.resolve(__dirname, 'dist'),
   },
   plugins: [
+    new MiniCssExtractPlugin({
+      filename: 'styles/[name].[contenthash].css',
+    }),
+
     new HtmlWebpackPlugin({
-      template: './index.html',
+      template: './index.pug',
       minify: {
         collapseWhitespace: isProd,
       },
     }),
-    new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin({
-      filename: 'styles/[name].[contenthash].css',
-    }),
-    new MiniCssExtractPlugin(),
   ],
-  optimization: {
-    splitChunks: {
-      chunks: 'all',
-    },
-    minimizer: [new CssMinimizerPlugin()],
-  },
   devServer: {
-    port: 4200,
-    hot: isDev,
+    port: 8080,
+    hot: isProd === false ? false : true,
   },
   module: {
     rules: [
       {
-        test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+        test: /\.html$/i,
+        loader: 'html-loader',
       },
       {
-        test: /\.s[ac]ss$/i,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+        test: /\.(sa|sc|c)ss$/,
+        use: [
+          mode === 'development' ? 'style-loader' : MiniCssExtractPlugin.loader,
+          'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: [
+                  [
+                    'postcss-preset-env',
+                    {
+                      // Options
+                    },
+                  ],
+                ],
+              },
+            },
+          },
+          'sass-loader',
+        ],
       },
       {
-        test: /\.(woff(2)?|eot|ttf|otf|)$/,
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: 'asset/resource',
-        generator: {
-          filename: 'fonts/[hash][ext][query]',
-        },
       },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: 'asset/resource',
+      },
+      {
+        test: /\.pug$/,
+        loader: 'pug-loader',
+        exclude: /(node_modules|bower_components)/,
+      },
+      {
+        test: /\.m?js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
+      }
     ],
   },
 };
