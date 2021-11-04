@@ -1,3 +1,5 @@
+include pug/libs/_libs
+
 doctype html
 html(lang='ru')
   head
@@ -124,8 +126,8 @@ html(lang='ru')
               | Copyright © 2018 Toxin отель. Все права защищены.
             .footer__copyright-social
               a.footer__copyright-link(href='#')
-                img.footer__copyright-social-tw(src='images/footer/twitter.png' alt='')
+                +image('footer/twitter.png', 'twitter').footer__copyright-social-tw
               a.footer__copyright-link(href='#')
-                img.footer__copyright-social-fb(src='images/footer/facebook.png' alt='')
+                +image('footer/facebook.png', 'facebook').footer__copyright-social-fb
               a.footer__copyright-link(href='#')
-                img.footer__copyright-social-ig(src='images/footer/instagram.png' alt='')
+                 +image('footer/instagram.png', 'instagram').footer__copyright-social-ig

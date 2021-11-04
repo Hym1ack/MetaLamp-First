@@ -1,7 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 let mode = 'development';
 let isProd = false;
@@ -9,7 +9,6 @@ if (process.env.NODE_ENV === 'production') {
   mode = 'production';
   isProd = true;
 }
-
 console.log(mode + ' mode');
 
 module.exports = {
@@ -22,6 +21,12 @@ module.exports = {
     assetModuleFilename: 'assets/[hash][ext][query]',
     path: path.resolve(__dirname, 'dist'),
   },
+  devtool: 'source-map',
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
+  },
   plugins: [
     new MiniCssExtractPlugin({
       filename: 'styles/[name].[contenthash].css',
@@ -33,8 +38,20 @@ module.exports = {
         collapseWhitespace: isProd,
       },
     }),
+
+    new CopyPlugin({
+      patterns: [
+        {
+          from: 'images',
+          to: 'images',
+        },
+      ],
+    }),
   ],
   devServer: {
+    static: {
+      directory: path.join(__dirname, 'src'),
+    },
     port: 8080,
     hot: isProd === false ? false : true,
   },
@@ -84,12 +101,12 @@ module.exports = {
         test: /\.m?js$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env']
-          }
-        }
-      }
+            presets: ['@babel/preset-env'],
+          },
+        },
+      },
     ],
   },
 };

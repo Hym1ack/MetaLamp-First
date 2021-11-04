@@ -16,10 +16,16 @@
   ],
   "author": "Pavlov Kirill <pavlovkirill322@gmail.com>",
   "license": "ISC",
+  "browserslist": [
+    "last 2 versions",
+    "> 1%",
+    "IE 10"
+  ],
   "devDependencies": {
     "@babel/core": "^7.16.0",
     "@babel/preset-env": "^7.16.0",
     "babel-loader": "^8.2.3",
+    "copy-webpack-plugin": "^9.0.1",
     "cross-env": "^7.0.3",
     "css-loader": "^6.5.0",
     "html-loader": "^3.0.0",
@@ -37,7 +43,7 @@
     "webpack-dev-server": "^4.4.0"
   },
   "dependencies": {
-    "postcss-preset-env": "^6.7.0",
-    "normalize.css": "^8.0.1"
+    "normalize.css": "^8.0.1",
+    "postcss-preset-env": "^6.7.0"
   }
 }
