@@ -1,0 +1,58 @@
+.colours {
+  display: flex;
+  flex-direction: column;
+}
+.colours-type {
+  padding: 145px 150px;
+  display: flex;
+  justify-content: space-between;
+}
+.colours__item {
+  margin-bottom: 20px;
+  display: flex;
+
+  &-block {
+    width: 70px;
+    height: 70px;
+    border-radius: 6px;
+
+    margin-right: 40px;
+  }
+  &-text {
+    margin: auto 0;
+  }
+  &-title {
+    margin: 0;
+    font-size: 700px;
+    font-size: 19px;
+    line-height: 28px;
+  }
+  &-descr {
+    margin: 0;
+    font-size: 400px;
+    font-size: 19px;
+    line-height: 28px;
+  }
+}
+
+.purple {
+  background-color: #bc9cff;
+}
+.green {
+  background-color: #6fcf97;
+}
+.shade100 {
+  background-color: #1f2041;
+}
+.shade75 {
+  background-color: rgba(#1f2041, 0.75);
+}
+.shade50 {
+  background-color: rgba(#1f2041, 0.5);
+}
+.shade25 {
+  background-color: rgba(#1f2041, 0.25);
+}
+.shade5 {
+  background-color: rgba(#1f2041, 0.05);
+}
