@@ -3,6 +3,12 @@ include pug/libs/_libs
 doctype html
 html(lang='ru')
   include pug/_head
+  link(rel="stylesheet", href="styles/main.scss")
+  
   body
-  include pug/blocks/colors/colors.pug
-   
+  .container
+    .column
+      include pug/blocks/colors/colors.pug
+      include pug/blocks/type/type.pug
+      
+
