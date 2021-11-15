@@ -1,0 +1,95 @@
+[33mcommit 09b98dabe839243842360fc4be791a5dcb7c2113[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Kirill <pavlovkirill322@gmail.com>
+Date:   Sun Nov 14 23:09:38 2021 +0300
+
+    added radio buttons
+
+[33mcommit d11a64556c644567bf3587d3478401cb576f28c2[m
+Author: Kirill <pavlovkirill322@gmail.com>
+Date:   Sat Nov 13 21:24:56 2021 +0300
+
+    make checkbox buttons
+
+[33mcommit 4b03c0c1245cc5b13b5638e61747132ff016967e[m
+Author: Kirill <pavlovkirill322@gmail.com>
+Date:   Sat Nov 13 16:44:43 2021 +0300
+
+    done type block
+
+[33mcommit 2dd1da7aaf27816e66d249dece84471027d2ad5f[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: Kirill <pavlovkirill322@gmail.com>
+Date:   Tue Nov 9 12:37:14 2021 +0300
+
+    done colors block
+
+[33mcommit e85f72020dbc762d22a41fb70f7f67ea2a4b9ae9[m
+Author: Kirill <pavlovkirill322@gmail.com>
+Date:   Thu Nov 4 22:40:41 2021 +0300
+
+    added copyplugin for images
+
+[33mcommit 2c0c0848f230fc612496bf3bc9fe15304e09a30f[m
+Author: Kirill <pavlovkirill322@gmail.com>
+Date:   Tue Nov 2 16:32:13 2021 +0300
+
+    rewrote webpack
+
+[33mcommit 494129f27c7f4da772d22f4432a39a049767e1e2[m
+Author: Kirill <pavlovkirill322@gmail.com>
+Date:   Mon Nov 1 18:37:41 2021 +0300
+
+    added minimizer css
+
+[33mcommit 70b710786dcbdd722cd90f04964e9d6eb749315e[m
+Author: Kirill <pavlovkirill322@gmail.com>
+Date:   Fri Oct 29 19:16:58 2021 +0300
+
+    added folders in dist, and almost finished the webpack assembly
+
+[33mcommit b13f09baa868114410ca1fd7192bcf215645ee4e[m
+Author: Kirill <pavlovkirill322@gmail.com>
+Date:   Mon Oct 25 23:14:04 2021 +0300
+
+    doing webpack assembly
+
+[33mcommit eac0f894f0cde80c2d5cb954ee63dafc99857fe5[m
+Author: Kirill <pavlovkirill322@gmail.com>
+Date:   Mon Oct 25 13:03:31 2021 +0300
+
+    added src and dist folders for webpack
+
+[33mcommit 8d14ebc980446b6b923aea0ef6275aa363622242[m
+Author: Kirill <pavlovkirill322@gmail.com>
+Date:   Thu Oct 21 18:53:59 2021 +0300
+
+    added footer
+
+[33mcommit 71d1c8bea52bf4561498f9c26cabbae4158d4855[m
+Author: Kirill <pavlovkirill322@gmail.com>
+Date:   Tue Oct 19 22:11:52 2021 +0300
+
+    fixed paths to images and styles
+
+[33mcommit 0c75c005c66e1406b1019b9ed63a5bace6f4840c[m
+Author: Kirill <pavlovkirill322@gmail.com>
+Date:   Tue Oct 19 22:00:20 2021 +0300
+
+    added normalize.css and header
+
+[33mcommit db538c5cd7cf9d291885ad8a53a6412cfa2a59a1[m
+Author: Kirill <pavlovkirill322@gmail.com>
+Date:   Tue Oct 19 19:57:01 2021 +0300
+
+    added description in readme file
+
+[33mcommit 680a58dfebe65ff6d35effba4e217e80ece28056[m
+Author: Kirill <pavlovkirill322@gmail.com>
+Date:   Tue Oct 19 19:52:26 2021 +0300
+
+    added readme.md
+
+[33mcommit 3725d49182b9c1033c2b46c5c382fd7b2eb6da30[m
+Author: Kirill <pavlovkirill322@gmail.com>
+Date:   Tue Oct 19 19:25:11 2021 +0300
+
+    created the main files
