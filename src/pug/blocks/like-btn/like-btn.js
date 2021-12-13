@@ -11,12 +11,12 @@ for (let i = 0; i < likeBtn.length; i++) {
     if (!clicked) {
       clicked = true;
       likeBtn[i].classList.toggle('like__box-liked');
-      likeIcon[i].src = 'pug/blocks/like-btn/heart-active.svg';
+      likeIcon[i].src = 'images/heart-active.svg';
       likeCount[i].textContent++;
     } else {
       clicked = false;
       likeBtn[i].classList.toggle('like__box-liked');
-      likeIcon[i].src = 'pug/blocks/like-btn/heart.svg';
+      likeIcon[i].src = 'images/heart.svg';
       likeCount[i].textContent--;
     }
   });

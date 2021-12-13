@@ -1,0 +1,2 @@
+!function(){"use strict";for(var e=document.querySelectorAll(".like__button"),t=document.querySelectorAll(".like__heart"),l=document.querySelectorAll(".like__count"),c=function(c){var i=!1;e[c].addEventListener("click",(function(){i?(i=!1,e[c].classList.toggle("like__box-liked"),t[c].src="images/heart.svg",l[c].textContent--):(i=!0,e[c].classList.toggle("like__box-liked"),t[c].src="images/heart-active.svg",l[c].textContent++)}))},i=0;i<e.length;i++)c(i)}();
+//# sourceMappingURL=main.4d552de9c77a063a7868.js.map
