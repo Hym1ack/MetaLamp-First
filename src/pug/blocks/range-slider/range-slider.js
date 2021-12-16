@@ -16,7 +16,7 @@ noUiSlider.create(slider, {
   },
 });
 
-slider.noUiSlider.on('update', function (values, handle) {
+slider.noUiSlider.on('update', function (values) {
   let min = Math.round(values[0]).toLocaleString(),
     max = Math.round(values[1]).toLocaleString();
 
