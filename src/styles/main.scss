@@ -38,6 +38,8 @@ li {
 .column {
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
+  flex-wrap: wrap;
   margin-top: 145px;
   margin-bottom: 145px;
 }

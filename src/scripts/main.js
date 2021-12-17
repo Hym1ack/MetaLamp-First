@@ -9,5 +9,5 @@ import '../pug/blocks/toggle/toggle.js';
 import '../pug/blocks/rate/rate.js';
 import '../pug/blocks/like-btn/like-btn.js';
 
-
 import '../pug/blocks/range-slider/range-slider.js';
+import '../pug/blocks/button/button';
