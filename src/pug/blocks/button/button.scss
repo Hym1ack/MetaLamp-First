@@ -1,0 +1,47 @@
+.btn {
+  border: none;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 15px;
+  text-transform: uppercase;
+  color: #ffffff;
+  transition: 0.2s ease-in-out;
+
+  &:hover {
+    opacity: 0.5;
+  }
+  &--darken:hover {
+    color: rgb(31, 32, 65);
+  }
+  // Modifers
+
+  &--outline {
+    border-color: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+    border: 2px;
+    padding: 14px 20px 15px;
+    border-radius: 22px;
+  }
+  &--backgroundColor {
+    background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+  }
+  &--textColor {
+    color: #bc9cff;
+    background-color: transparent;
+  }
+  &--big {
+    width: 320px;
+    position: relative;
+    &::after {
+      content: '';
+      background-image: url(../../../images/arrow_button.svg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      position: absolute;
+      right: 14px;
+      top: 14px;
+    }
+  }
+}
