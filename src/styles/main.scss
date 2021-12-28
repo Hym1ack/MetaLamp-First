@@ -16,6 +16,7 @@ html {
 *::before {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 a {
   text-decoration: none;
@@ -42,4 +43,8 @@ li {
   flex-wrap: wrap;
   margin-top: 145px;
   margin-bottom: 145px;
+}
+
+.hide {
+  display: none;
 }

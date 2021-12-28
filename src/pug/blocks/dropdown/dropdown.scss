@@ -1,0 +1,130 @@
+.dropdown {
+  position: relative;
+
+  &:hover &__menu {
+    display: block;
+  }
+  &:hover &__btn {
+    border: 1px solid rgba(31, 32, 65, 0.5);
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+
+    font-size: 14px;
+
+    color: rgba(31, 32, 65, 0.75);
+  }
+  &__title {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+    color: #1f2041;
+  }
+  &__btn {
+    width: 320px;
+    height: 44px;
+    text-align: left;
+    padding: 10px 15px;
+
+    border: 1px solid rgba(31, 32, 65, 0.25);
+    border-radius: 2px;
+
+    background: #ffffff;
+
+    position: relative;
+
+    transition: 0.2s ease;
+  }
+  &__btn::after {
+    content: '';
+    position: absolute;
+
+    background-image: url('../../../images/expand_more.svg');
+    background-repeat: no-repeat;
+    top: 17px;
+    right: 0;
+    width: 24px;
+    height: 24px;
+  }
+
+  &__menu {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    z-index: 1;
+    width: 320px;
+    height: 159px;
+
+    border: 1px solid rgba(31, 32, 65, 0.5);
+    border-top: none;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+
+    padding: 7px 7px 13px 15px;
+    transition: display 1s;
+  }
+  &__menu--hide {
+    display: none;
+  }
+  &__item {
+    height: 30px;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 30px;
+    text-transform: uppercase;
+    color: #1f2041;
+
+    display: flex;
+    justify-content: space-between;
+  }
+  &__item + &__item {
+    margin-top: 7px;
+  }
+
+  &__item-counter {
+    width: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  &__item-minus,
+  &__item-plus {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    border: 1px solid rgba(31, 32, 65, 0.5);
+    border-radius: 50%;
+  }
+
+  &__item-count {
+    margin: 0 12px;
+  }
+
+  &__item--opacity {
+    opacity: 50%;
+    pointer-events: none;
+    cursor: default;
+  }
+
+  &__control {
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 20px;
+
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+    color: #bc9cff;
+  }
+  &__reset,
+  &__apply {
+    cursor: pointer;
+  }
+}
