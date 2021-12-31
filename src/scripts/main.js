@@ -14,4 +14,5 @@ import '../styles/main.scss';
 // import '../pug/blocks/pagination/pagination.js';
 
 // import '../pug/blocks/text-field/text-field.js';
-import '../pug/blocks/dropdown/dropdown.js';
+// import '../pug/blocks/dropdown/dropdown.js';
+import '../pug/blocks/date-dropdown/date-dropdown.js';
