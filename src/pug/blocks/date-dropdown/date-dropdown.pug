@@ -1,7 +1,27 @@
-.date-dropdown
-  .date-dropdown__item
-    label.date-dropdown__title date dropdown
-    input(type="text" placeholder="ДД.ММ.ГГГГ").date-dropdown__field.date-dropdown--start
-  .date-dropdown__item
-    label.date-dropdown__title date dropdown
-    input(type="text" placeholder="ДД.ММ.ГГГГ").date-dropdown__field.date-dropdown--end
+mixin dateDropdown(typeDate)
+  if (typeDate == 'masked')
+    .date-dropdown
+      .date-dropdown__item-masked
+        h4.date-dropdown__title masked text field
+        input(type="text" placeholder="ДД.ММ.ГГГГ").date-dropdown__field.date-dropdown__field--masked
+  else if (typeDate == 'range')
+    .date-dropdown
+      .date-dropdown__item-range
+        h4.date-dropdown__title date dropdown
+        input(type="text" placeholder="ДД.ММ.ГГГГ").date-dropdown__field.date-dropdown__field--range.date-dropdown--start
+      .date-dropdown__item-range
+        h4.date-dropdown__title date dropdown
+        input(type="text" placeholder="ДД.ММ.ГГГГ").date-dropdown__field.date-dropdown__field--range.date-dropdown--end
+  else if (typeDate == 'filter')
+    .date-dropdown
+      .date-dropdown__item-filter
+        h4.date-dropdown__title filter date dropdown
+        input(type="text" placeholder="ДД.ММ.ГГГГ").date-dropdown__field.date-dropdown__field--filter
+    
+
+
++dateDropdown('masked')
+
++dateDropdown('range')
+
++dateDropdown('filter')

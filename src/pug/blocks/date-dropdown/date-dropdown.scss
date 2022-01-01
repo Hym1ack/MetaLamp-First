@@ -1,11 +1,8 @@
 .date-dropdown {
+  width: 320px;
   display: flex;
-  &__item {
-    margin-right: 20px;
-  }
-  &__item:last-child {
-    margin-right: 0;
-  }
+  justify-content: space-between;
+
   &__title {
     font-weight: bold;
     font-size: 12px;
@@ -14,13 +11,55 @@
     color: #1f2041;
   }
   &__field {
-    width: 150px;
-    height: 44px;
+    margin-top: 5px;
     border: 1px solid rgba(31, 32, 65, 0.25);
     border-radius: 4px;
-    padding: 11px 0 15px 15px;
+
+    padding: 12px 0 8px 15px;
+
+    font-size: 14px;
+    line-height: 24px;
+    cursor: pointer;
   }
+
+  &__field--range {
+    width: 150px;
+    height: 44px;
+  }
+
+  &__field--masked {
+    width: 320px;
+
+    &::placeholder {
+      color: rgba(31, 32, 65, 0.25);
+    }
+  }
+  &__field--filter {
+    width: 266px;
+    height: 44px;
+  }
+  &__item-range,
+  &__item-filter {
+    position: relative;
+  }
+  // &__field--filter::after,
+  &__item-range::after,
+  &__item-filter::after {
+    content: '';
+    position: absolute;
+    display: inline-block;
+    bottom: 16px;
+    right: 10px;
+    background-repeat: no-repeat;
+    background-image: url(../../../images/expand_more.svg);
+    width: 12px;
+    height: 8px;
+  }
+
   &--start {
     position: relative;
   }
 }
+
+
+@import './airDatePicker.scss';
