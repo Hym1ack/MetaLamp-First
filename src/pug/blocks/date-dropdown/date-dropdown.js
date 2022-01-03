@@ -27,7 +27,6 @@ let apply = {
 
 new AirDatepicker('.date-dropdown--start', {
   range: true,
-  inline: true,
   multipleDates: true,
   minDate: new Date(),
   multipleDatesSeparator: '-',
@@ -67,4 +66,5 @@ new AirDatepicker('.date-dropdown__field--filter', {
   navTitles: {
     days: `MMMM yyyy`,
   },
+  buttons: ['clear', apply],
 });
