@@ -1,0 +1,78 @@
+// .expand-checkbox__list {
+
+// }
+
+.expand-checkbox {
+  &__btn {
+    margin-bottom: 17px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    width: 266px;
+    height: 15px;
+
+    text-align: left;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__img {
+    display: inline-block;
+    width: 12px;
+    height: 8px;
+    transition: transform 0.5s ease-in-out;
+  }
+  &__img--rotate {
+    transform: rotate(-180deg);
+  }
+  &__list {
+    transition: max-height 1s;
+    overflow: hidden;
+    max-height: 0;
+  }
+  &__hide-smooth {
+    max-height: 200px;
+  }
+
+  &__item {
+    margin-bottom: 10px;
+  }
+  &__item-box {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    min-width: 20px;
+    min-height: 20px;
+  }
+  &__item-text {
+    font-size: 14px;
+    line-height: 18px;
+    color: rgba(31, 32, 65, 0.5);
+    display: flex;
+    align-items: center;
+    user-select: none;
+    cursor: pointer;
+  }
+
+  &__item-text::before {
+    content: '';
+    margin-right: 10px;
+    display: inline-block;
+
+    min-width: 20px;
+    min-height: 20px;
+
+    border: 1px solid rgba(31, 32, 65, 0.25);
+    border-radius: 4px;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  &__item-box:checked + &__item-text::before {
+    border-color: #bc9cff;
+    background-image: url(./check.svg);
+  }
+}

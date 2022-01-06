@@ -1,0 +1,14 @@
+mixin expandCheckboxList(countNames)
+  .expand-checkbox
+    button.expand-checkbox__btn(type="submit") expandable checkbox list
+      img.expand-checkbox__img(src="../../../images/expand_more.svg", alt="alt")
+    ul.expand-checkbox__list
+      each count, index in countNames
+        li.expand-checkbox__item
+          input(type="checkbox", name="smoking" id='checkbox-' + index).expand-checkbox__item-box 
+          label(for="checkbox-" + index).expand-checkbox__item-text= count
+
+
+
++expandCheckboxList(['Завтрак', 'Письменный стол', 'Стул для кормления', 'Кроватка', 'Телевизор', 'Шампунь'])
++expandCheckboxList(['Завтрак', 'Письменный стол', 'Стул для кормления', 'Кроватка', 'Телевизор', 'Шампунь'])
