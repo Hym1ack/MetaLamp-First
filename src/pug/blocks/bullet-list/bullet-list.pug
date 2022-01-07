@@ -1,0 +1,8 @@
+mixin bulletList(items)
+  .bullet-list 
+    h4.bullet-list__title bullet list
+    ul.bullet-list__items 
+      each item in items
+        li.bullet-list__item= item 
+
++bulletList(['Нельзя с питомцами', 'Без вечеринок и мероприятий', 'Время прибытия — после 13:00, а выезд до 12:00'])
