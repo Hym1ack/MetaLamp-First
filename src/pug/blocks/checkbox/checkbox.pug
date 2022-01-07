@@ -1,15 +1,24 @@
-.checkbox
-  h4.checkbox__title Checkbox Buttons
-  .checkbox__items
-    .checkbox__item 
-      input#checkbox-1(type="checkbox", name="smoking").checkbox__item-box 
-      label(for="checkbox-1").checkbox__item-text 
-       | Можно курить
-    .checkbox__item 
-      input#checkbox-2(type="checkbox", name="pets").checkbox__item-box 
-      label(for="checkbox-2").checkbox__item-text 
-       | Можно с питомцами
-    .checkbox__item 
-      input#checkbox-3(type="checkbox", name="guests").checkbox__item-box 
-      label(for="checkbox-3").checkbox__item-text 
-       | Можно пригласить гостей (до 10 человек)
+mixin checkbox(type, title, array)
+  .checkbox
+    h4.checkbox__title= title
+    .checkbox__items
+      each item in array 
+        .checkbox__item 
+          input(type="checkbox", name= type, id='checkbox-' + item.length + title.length).checkbox__item-box 
+          label(for="checkbox-"  + item.length + title.length).checkbox__item-text= item
+
+
+mixin checkboxRich(type, title, arrayTitles, arrayDescr)
+  .checkbox
+    h4.checkbox__title= title
+    .checkbox__items
+      each item, index in arrayTitles 
+        .checkbox__item 
+          input(type="checkbox", name= type, id='checkbox-' + item.length + title.length).checkbox__item-box
+          label(for="checkbox-"  + item.length + title.length).checkbox__item-text
+            p.checkbox__item-title= item
+              span.checkbox__item-descr= arrayDescr[index]
+
++checkbox('regular', 'Checkbox Buttons', ['Можно курить','Можно с питомцами','Можно пригласить гостей (до 10 человек)'])
+
++checkboxRich('rich', 'rich Checkbox Buttons', ['Широкий коридор','Помощник для инвалидов'], ['Ширина коридоров в номере не менее 91 см.', 'На 1 этаже вас встретит специалист  и проводит до номера.'])
