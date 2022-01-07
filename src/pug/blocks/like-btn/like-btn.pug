@@ -1,8 +1,6 @@
-.like
-  h4.like__title like Button
-  button.like__button 
-    img(class="like__heart" src="images/heart.svg", alt="❤")
-    span.like__count 12
-  button.like__button 
-    img(class="like__heart" src="images/heart.svg", alt="❤")
-    span.like__count 12
+mixin like(count, classes, title)
+  div(class='like ' + classes)
+    h4.like__title= title
+    button.like__button 
+      img(class="like__heart", src="images/heart.svg", alt="❤")
+      span.like__count= count
