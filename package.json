@@ -33,7 +33,7 @@
     "mini-css-extract-plugin": "^2.4.3",
     "postcss": "^8.3.11",
     "postcss-loader": "^6.2.0",
-    "pug": "^2.0.4",
+    "pug": "^3.0.2",
     "sass": "^1.43.4",
     "sass-loader": "^12.3.0",
     "simple-pug-loader": "^0.2.1",
@@ -46,6 +46,6 @@
     "air-datepicker": "^3.1.0",
     "normalize.css": "^8.0.1",
     "nouislider": "^15.5.0",
-    "postcss-preset-env": "^6.7.0"
+    "postcss-preset-env": "^7.2.0"
   }
 }
