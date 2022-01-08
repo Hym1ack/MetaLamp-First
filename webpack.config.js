@@ -94,11 +94,8 @@ module.exports = {
       },
       {
         test: /\.pug$/,
-        use: [
-          {
-            loader: 'simple-pug-loader'
-          }
-        ]
+        loader: 'pug-loader',
+        exclude: /(node_modules|bower_components)/,
       },
       {
         test: /\.m?js$/,
