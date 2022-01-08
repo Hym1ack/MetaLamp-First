@@ -1,5 +1,20 @@
-.buttons
-  button.btn.btn--outline.btn--backgroundColor(type='submit') CLICK ME
-  button.btn.btn--outline.btn--textColor(type='submit') CLICK ME
-  button.btn.btn--textColor.btn--darken(type='submit') CLICK ME
-  button.btn.btn--outline.btn--backgroundColor.btn--big(type='submit') перейти к оплате
+//-                     Classes
+//- btn--outline
+//- btn--backgroundColor
+//- btn--textColor
+//- btn--darken
+//- btn--big
+
+mixin button(text, extra, border, backgroundColor, textColor, darken, big)
+    - 
+      let classList = ''
+      if (extra) classList += extra
+      if (border) classList += border
+      if (backgroundColor) classList += backgroundColor
+      if (textColor) classList += textColor
+      if (darken) classList += darken
+      if (big) classList += big
+
+    button.btn(type='submit' class=classList )= text
+
++button('перейти к оплате', 'btn--outline', ' btn--backgroundColor')
