@@ -7,23 +7,46 @@
     color: #1f2041;
   }
   &__block {
-    box-sizing: border-box;
-    width: 320px;
+    position: relative;
+
+    width: inherit;
+    padding: 0;
+
+    border: none;
+  }
+  &__field {
+    width: 100%;
     height: 44px;
-    border: 1px solid #1f204140;
+
     padding: 13px 15px;
+
+    border: 1px solid #1f204140;
     border-radius: 4px;
   }
+  &__arrow {
+    position: absolute;
+    top: 14px;
+    right: 14px;
 
-  &__block::placeholder {
+    width: 16px;
+    height: 16px;
+
+    background-image: url(./arrow_forward.svg);
+
+    cursor: text;
+    pointer-events: none;
+  }
+
+  &__field::placeholder {
     color: rgba(31, 32, 65, 0.25);
     font-size: 14px;
     line-height: 18px;
   }
 
-  &__block[type='email']:focus,
-  &__block[type='email']:hover {
+  &__field[type='email']:focus,
+  &__field[type='email']:hover {
     border: 1px solid rgba(31, 32, 65, 0.5);
+
     color: rgba(31, 32, 65, 0.75);
     font-size: 14px;
     line-height: 24px;
