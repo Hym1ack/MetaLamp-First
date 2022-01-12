@@ -10,6 +10,10 @@ html {
   font-size: 14px;
   line-height: 18px;
 }
+textarea:focus,
+input:focus {
+  outline: none;
+}
 
 *,
 *::after,

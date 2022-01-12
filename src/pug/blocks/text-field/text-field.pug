@@ -1,3 +1,10 @@
-.text-field 
-  h4.text-field__title Text field
-  input.text-field__block(type="email", placeholder="Email")
+mixin textField(title, placeholder, arrow)
+  .text-field 
+    h4.text-field__title= title
+    fieldset.text-field__block
+      input.text-field__field(type="email", placeholder=placeholder)
+      if (arrow == true) 
+        span.text-field__arrow
+
+
++textField('Title', 'placeHold', true)
