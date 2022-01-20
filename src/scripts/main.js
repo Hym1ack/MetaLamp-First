@@ -11,7 +11,7 @@ import '../styles/main.scss';
 
 // import '../pug/blocks/range-slider/range-slider.js';
 // import '../pug/blocks/button/button.js';
-import '../pug/blocks/pagination/pagination.js';
+// import '../blocks/pagination/pagination.js';
 
 // import '../pug/blocks/text-field/text-field.js';
 // import '../pug/blocks/dropdown/dropdown.js';

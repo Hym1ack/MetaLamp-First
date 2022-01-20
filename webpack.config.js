@@ -14,7 +14,10 @@ console.log(mode + ' mode');
 module.exports = {
   mode: mode,
   context: path.resolve(__dirname, 'src'),
-  entry: './scripts/main.js',
+  entry: {
+    index: './pages/index/index.js',
+    uiKit: './pages/uiKit/uiKit.js',
+  },
   output: {
     clean: true,
     filename: 'scripts/[name].[contenthash].js',
@@ -33,7 +36,18 @@ module.exports = {
     }),
 
     new HtmlWebpackPlugin({
-      template: './index.pug',
+      template: './pages/index/index.pug',
+      filename: 'index.html',
+      chunks: ['index'],
+      minify: {
+        collapseWhitespace: isProd,
+      },
+    }),
+
+    new HtmlWebpackPlugin({
+      template: './pages/uiKit/uiKit.pug',
+      filename: 'uikit.html',
+      chunks: ['uiKit'],
       minify: {
         collapseWhitespace: isProd,
       },
