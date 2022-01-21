@@ -15,8 +15,8 @@ module.exports = {
   mode: mode,
   context: path.resolve(__dirname, 'src'),
   entry: {
-    index: './pages/index/index.js',
-    uiKit: './pages/uiKit/uiKit.js',
+    colorsType: './pages/colorsType/colorsType.js',
+    formElements: './pages/formElements/formElements.js',
   },
   output: {
     clean: true,
@@ -36,18 +36,18 @@ module.exports = {
     }),
 
     new HtmlWebpackPlugin({
-      template: './pages/index/index.pug',
-      filename: 'index.html',
-      chunks: ['index'],
+      template: './pages/formElements/formElements.pug',
+      filename: 'formElements.html',
+      chunks: ['formElements'],
       minify: {
         collapseWhitespace: isProd,
       },
     }),
 
     new HtmlWebpackPlugin({
-      template: './pages/uiKit/uiKit.pug',
-      filename: 'uikit.html',
-      chunks: ['uiKit'],
+      template: './pages/colorsType/colorsType.pug',
+      filename: 'colorsType.html',
+      chunks: ['colorsType'],
       minify: {
         collapseWhitespace: isProd,
       },
