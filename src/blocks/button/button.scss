@@ -1,46 +1,87 @@
 .btn {
+  max-height: 44px;
+
   border: none;
-  font-weight: bold;
-  font-size: 12px;
-  line-height: 15px;
-  text-transform: uppercase;
-  color: #ffffff;
+  background-color: transparent;
+
   transition: 0.2s ease-in-out;
 
-  &:hover {
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 45px;
+  text-transform: uppercase;
+  color: #ffffff;
+
+  &__small {
+    width: 76px;
+  }
+  &__normal {
+    width: 99px;
+  }
+  &__big {
+    width: 320px;
+  }
+  &__purple {
+    color: #bc9cff;
+  }
+
+  &__fill {
+    background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+
+    border-radius: 22px;
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+  &__border {
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      width: 99px;
+      height: 44px;
+
+      background-image: url('./assets/border.svg');
+
+      transition: 0.2s ease-in-out;
+    }
+    &:hover {
+      &::before {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  &__darken:hover {
+    color: rgba(31, 32, 65, 0.5);
+  }
+  &__disabled {
+    pointer-events: none;
     opacity: 0.5;
   }
-  &--darken:hover {
-    color: rgb(31, 32, 65);
+  &__darken.btn__disabled {
+    color: rgba(31, 32, 65, 0.5);
+    opacity: 1;
   }
-  // Modifers
 
-  &--outline {
-    border-color: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
-    border: 2px;
-    padding: 14px 20px 15px;
-    border-radius: 22px;
-  }
-  &--backgroundColor {
-    background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
-  }
-  &--textColor {
-    color: #bc9cff;
-    background-color: transparent;
-  }
-  &--big {
+  &__arrow {
     position: relative;
     &::after {
       content: '';
-      background-image: url(../../../images/arrow_button.svg);
-      background-repeat: no-repeat;
-      background-size: cover;
-      display: inline-block;
-      width: 16px;
-      height: 16px;
       position: absolute;
       right: 14px;
       top: 14px;
+
+      width: 16px;
+      height: 16px;
+
+      background-image: url('./assets/arrow_button.svg');
+      background-repeat: no-repeat;
+      background-size: cover;
     }
   }
 }

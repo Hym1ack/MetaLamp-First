@@ -1,20 +1,28 @@
-//-                     Classes
-//- btn--outline
-//- btn--backgroundColor
-//- btn--textColor
-//- btn--darken
-//- btn--big
+mixin button(attrs = {})
+  - 
+    const { 
+      text= '',
+      textColor= 'white',
+      width= 'normal',
+      fill= false,
+      textDarken= false,
+      border= false,
+      disabled= false,
+      arrow= false,
+    } = attrs;
 
-mixin button(text, extra, border, backgroundColor, textColor, darken, big)
-    - 
-      let classList = ''
-      if (extra) classList += extra
-      if (border) classList += border
-      if (backgroundColor) classList += backgroundColor
-      if (textColor) classList += textColor
-      if (darken) classList += darken
-      if (big) classList += big
+    let classList = [];
+  
+    attrs.textColor === 'purple' ? classList.push('btn__purple') : '';
 
-    button.btn(type='submit' class=classList )= text
+    attrs.width === 'small' ? classList.push('btn__small') : '';
+    attrs.width === 'normal' ? classList.push('btn__normal') : '';
+    attrs.width === 'big' ? classList.push('btn__big') : '';
 
-+button('перейти к оплате', 'btn--outline', ' btn--backgroundColor')
+    attrs.fill === true ? classList.push('btn__fill'): '';
+    attrs.textDarken === true ? classList.push('btn__darken'): '';
+    attrs.border === true ? classList.push('btn__border'): '';
+    attrs.disabled === true ? classList.push('btn__disabled'): '';
+    attrs.arrow === true ? classList.push('btn__arrow'): '';
+ 
+  button.btn(type='submit' class=classList )= attrs.text
