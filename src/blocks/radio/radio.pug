@@ -1,11 +1,34 @@
-.radio
-  h4.radio__title Radio Buttons
+mixin radio(attrs = {})
+  -
+    const {
+      firstItem='',
+      secondItem='',
+      name='',
+    } = attrs;
+   
+    let id = [];
+    for(let i = 0; id.length < 2; i++) {
+      let randId = (Math.floor(Math.random() * Date.now()));
+      id.push(randId)
+    }
+
+
   .radio__items 
     .radio__item 
-      input#radio-1(type="radio", name="gender" value="male").radio__item-circle 
-      label(for="radio-1").radio__item-text 
-       span Мужчина
+      input(
+        type="radio", 
+      name=name, 
+      value="male", 
+      id=id[0]
+      ).radio__item-circle 
+      label(for=id[0]).radio__item-text 
+        span= firstItem
     .radio__item 
-      input#radio-2(type="radio", name="gender" value="female").radio__item-circle 
-      label(for="radio-2").radio__item-text 
-       span Женщина
+      input(
+        type="radio", 
+        name=name
+        value="female",
+        id=id[1]
+      ).radio__item-circle 
+      label(for=id[1]).radio__item-text 
+        span= secondItem
