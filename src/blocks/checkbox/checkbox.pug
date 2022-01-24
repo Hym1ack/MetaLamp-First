@@ -1,24 +1,58 @@
-mixin checkbox(type, title, array)
-  .checkbox
-    h4.checkbox__title= title
-    .checkbox__items
-      each item in array 
-        .checkbox__item 
-          input(type="checkbox", name= type, id='checkbox-' + item.length + title.length).checkbox__item-box 
-          label(for="checkbox-"  + item.length + title.length).checkbox__item-text= item
+mixin checkbox(attrs = {})
+  - 
+    const {
+      title= '',
+      text= '',
+      isRich= false,
+      isChecked= false,
+    } = attrs
+    
+    const randomId = Math.floor(Math.random() * Date.now());
+
+  .checkbox__item 
+    input(
+      class= "checkbox__item-box",
+      type="checkbox", 
+      name=text, 
+      id='checkbox' + randomId + index, 
+      checked= attrs.isChecked,
+    )
+    if (isRich == false)
+      label(for="checkbox" + randomId + index).checkbox__item-text= text
+    if (isRich == true)
+      label(for="checkbox" + randomId + index).checkbox__item-text
+        p.checkbox__item-title= title
+          span.checkbox__item-descr= text
 
 
-mixin checkboxRich(type, title, arrayTitles, arrayDescr)
-  .checkbox
-    h4.checkbox__title= title
-    .checkbox__items
-      each item, index in arrayTitles 
-        .checkbox__item 
-          input(type="checkbox", name= type, id='checkbox-' + item.length + title.length).checkbox__item-box
-          label(for="checkbox-"  + item.length + title.length).checkbox__item-text
-            p.checkbox__item-title= item
-              span.checkbox__item-descr= arrayDescr[index]
 
-+checkbox('regular', 'Checkbox Buttons', ['Можно курить','Можно с питомцами','Можно пригласить гостей (до 10 человек)'])
 
-+checkboxRich('rich', 'rich Checkbox Buttons', ['Широкий коридор','Помощник для инвалидов'], ['Ширина коридоров в номере не менее 91 см.', 'На 1 этаже вас встретит специалист  и проводит до номера.'])
+
+
+
+//- mixin checkbox(attrs = {})
+//-   - 
+//-     const {
+//-       titleArray= [],
+//-       textArray= [],
+//-       isRich= false,
+//-       isChecked= false,
+//-     } = attrs
+    
+//-     let randomId = Math.floor(Math.random() * Date.now());
+
+//-   each text,index in attrs.textArray 
+//-     .checkbox__item 
+//-       input(
+//-         class= "checkbox__item-box",
+//-         type="checkbox", 
+//-         name=text, 
+//-         id='checkbox' + randomId + index, 
+//-         checked=attrs.isChecked,
+//-       )
+//-       if (isRich == false)
+//-         label(for="checkbox" + randomId + index).checkbox__item-text= text
+//-       if (isRich == true)
+//-         label(for="checkbox" + randomId + index).checkbox__item-text
+//-           p.checkbox__item-title= titleArray[index]
+//-             span.checkbox__item-descr= textArray[index]
