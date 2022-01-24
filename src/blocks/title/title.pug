@@ -1,0 +1,19 @@
+mixin title(attrs = {})
+  -
+    const {
+      headingLevel='h3',
+      headingText='',
+      marginBottom= 5,
+    } = attrs;
+
+    const classList = [];
+    attrs.marginBottom === 5 ? classList.push('mb5') : '';
+    attrs.marginBottom === 16 ? classList.push('mb16') : '';
+
+  case attrs.headingLevel 
+    when 'h1' 
+      h1(class=classList).title__h1= headingText
+    when 'h2'
+      h2(class=classList).title__h2= headingText
+    when 'h3' 
+      h3(class=classList).title__h3= headingText
