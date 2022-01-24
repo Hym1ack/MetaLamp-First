@@ -1,11 +1,18 @@
-.toggle
-  h4.toggle__title toggle Buttons
-  .toggle__items
-    .toggle__item 
-      input#toggle-1(type="checkbox", name="smoking").toggle__item-box 
-      label(for="toggle-1").toggle__item-text 
-       | Получать спецпредложения
-    .toggle__item 
-      input#toggle-2(type="checkbox", name="pets").toggle__item-box 
-      label(for="toggle-2").toggle__item-text 
-       | Получать спецпредложения
+mixin toggle(attrs = {})
+  - 
+    const {
+      text= '',
+      name= '',
+      actived= false,
+    } = attrs;
+
+    const randomId = Math.floor(Math.random() * Date.now());
+
+  .toggle__item 
+    input(
+      type="checkbox", 
+      name=name,
+      id="toggle-" + randomId,
+      checked=actived
+      ).toggle__item-box 
+    label(for="toggle-" + randomId).toggle__item-text= attrs.text

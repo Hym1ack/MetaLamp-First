@@ -1,31 +1,26 @@
 .toggle {
-  margin-bottom: 40px;
-  &__title {
-    margin-bottom: 17px;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 15px;
-    text-transform: uppercase;
-    color: #1f2041;
-  }
 
   &__item {
     margin-bottom: 10px;
+
     display: flex;
     align-items: center;
   }
   &__item-box {
-    appearance: none;
     position: relative;
     display: inline-block;
+
     min-width: 40px;
     min-height: 20px;
-    vertical-align: top;
+
     background: #fff;
+    outline: none;
     border: 1px solid rgba(31, 32, 65, 0.25);
     border-radius: 10px;
-    outline: none;
+    appearance: none;
+    
     cursor: pointer;
+    
     transition: 0.5s ease-in-out;
   }
   &__item-text {
@@ -42,15 +37,16 @@
   }
   &__item-box::before {
     content: '';
-
     display: inline-block;
-    position: absolute;
     width: 12px;
     height: 12px;
-    background: rgba(31, 32, 65, 0.25);
-    border-radius: 10px;
+
+    position: absolute;
     left: 3px;
     top: 3px;
+    
+    background: rgba(31, 32, 65, 0.25);
+    border-radius: 10px;
 
     transform: translateX(0);
     transition: 0.5s ease;
