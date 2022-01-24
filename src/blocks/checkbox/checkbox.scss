@@ -1,13 +1,5 @@
 .checkbox {
-  margin-bottom: 40px;
-  &__title {
-    margin-bottom: 17px;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 15px;
-    text-transform: uppercase;
-    color: #1f2041;
-  }
+
   &__items {
     max-width: 230px;
   }
@@ -60,6 +52,6 @@
   }
   &__item-box:checked + &__item-text::before {
     border-color: #bc9cff;
-    background-image: url(./check.svg);
+    background-image: url('./assets/check.svg');
   }
 }
