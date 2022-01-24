@@ -1,18 +1,9 @@
 .radio {
-  margin-bottom: 40px;
-  &__title {
-    text-transform: uppercase;
-    color: #1f2041;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 15px;
-    margin-bottom: 16px;
-  }
   &__items {
     display: flex;
   }
   &__item {
-    margin-right: 20px;
+    margin-right: 22px;
   }
   &__item-circle {
     position: absolute;
@@ -22,8 +13,10 @@
 
   &__item-text {
     display: inline-flex;
+
     align-items: center;
     user-select: none;
+
     color: rgba(31, 32, 65, 0.5);
     font-size: 14px;
     line-height: 24px;
@@ -32,19 +25,23 @@
 
   &__item-text::before {
     content: '';
+    margin-right: 12px;
+
     display: inline-block;
     width: 20px;
     height: 20px;
+
     border: 1px solid rgba(31, 32, 65, 0.25);
     border-radius: 100%;
-    margin-right: 10px;
+
     background-repeat: no-repeat;
     background-position: center center;
   }
 
   &__item-circle:checked + &__item-text::before {
-    background-image: url(./radio.svg);
     border: 1px solid #bc9cff;
+
+    background-image: url('./assets/radio.svg');
   }
   &__item-circle:checked + &__item-text {
     color: rgba(31, 32, 65, 0.75);
