@@ -1,11 +1,4 @@
 .text-field {
-  &__title {
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 15px;
-    text-transform: uppercase;
-    color: #1f2041;
-  }
   &__block {
     position: relative;
 
@@ -31,7 +24,7 @@
     width: 16px;
     height: 16px;
 
-    background-image: url(./arrow_forward.svg);
+    background-image: url('./assets/arrow_forward.svg');
 
     cursor: text;
     pointer-events: none;

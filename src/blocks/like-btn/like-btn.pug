@@ -1,6 +1,21 @@
-mixin like(count, classes, title)
-  div(class='like ' + classes)
-    h4.like__title= title
-    button.like__button 
-      img(class="like__heart", src="images/heart.svg", alt="❤")
-      span.like__count= count
+mixin like(attrs = {})
+  - 
+    const {
+      count,
+      active=false,
+    } = attrs;
+
+    const classList = ['like__button']
+    let activeImg = '';
+    if (attrs.active === true) {
+      classList.push('like__box-liked');
+      activeImg = 'active'
+    };
+
+  button(class=classList) 
+    img(
+      class="like__heart",
+      alt="❤",
+      data-src=activeImg
+    )
+    span.like__count= attrs.count

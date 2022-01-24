@@ -1,23 +1,34 @@
 import './like-btn.scss';
 
 const likeBtn = document.querySelectorAll('.like__button');
-let likeIcon = document.querySelectorAll('.like__heart');
-let likeCount = document.querySelectorAll('.like__count');
+const likeIcon = document.querySelectorAll('.like__heart');
+const likeCount = document.querySelectorAll('.like__count');
 
-for (let i = 0; i < likeBtn.length; i++) {
+import heartActive from './assets/heart-active.svg';
+import heart from './assets/heart.svg';
+
+likeBtn.forEach((button, index) => {
   let clicked = false;
 
-  likeBtn[i].addEventListener('click', () => {
-    if (!clicked) {
-      clicked = true;
-      likeBtn[i].classList.toggle('like__box-liked');
-      likeIcon[i].src = 'images/heart-active.svg';
-      likeCount[i].textContent++;
-    } else {
+  if (likeIcon[index].dataset.src == 'active') {
+    likeIcon[index].src = heartActive;
+    clicked = true;
+  } else {
+    likeIcon[index].src = heart;
+    delete likeIcon[index].dataset.src;
+  }
+
+  button.addEventListener('click', () => {
+    if (clicked) {
       clicked = false;
-      likeBtn[i].classList.toggle('like__box-liked');
-      likeIcon[i].src = 'images/heart.svg';
-      likeCount[i].textContent--;
+      button.classList.toggle('like__box-liked');
+      likeIcon[index].src = heart;
+      likeCount[index].textContent--;
+    } else {
+      clicked = true;
+      button.classList.toggle('like__box-liked');
+      likeIcon[index].src = heartActive;
+      likeCount[index].textContent++;
     }
   });
-}
+});
