@@ -4,6 +4,8 @@ mixin title(attrs = {})
       headingLevel='h3',
       headingText='',
       marginBottom= 5,
+      addText=false,
+      rightText=''
     } = attrs;
 
     const classList = [];
@@ -17,3 +19,5 @@ mixin title(attrs = {})
       h2(class=classList).title__h2= headingText
     when 'h3' 
       h3(class=classList).title__h3= headingText
+        if addText == true
+          span.title__subtitle= attrs.rightText

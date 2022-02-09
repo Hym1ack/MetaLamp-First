@@ -7,11 +7,21 @@
   line-height: 23px;
 }
 .title__h3 {
+  position: relative;
+
   font-size: 12px;
   line-height: 15px;
   text-transform: uppercase;
 }
+.title__subtitle {
+  position: absolute;
+  top: 0;
+  right: -2px;
 
+  font-weight: 400;
+  text-align: right;
+  color: rgba(31, 32, 65, 0.5);
+}
 
 .mb5 {
   margin-bottom: 5px;
