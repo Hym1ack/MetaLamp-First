@@ -14,13 +14,13 @@ mixin checkbox(attrs = {})
       class= "checkbox__item-box",
       type="checkbox", 
       name=text, 
-      id='checkbox' + randomId + index, 
+      id='checkbox' + randomId, 
       checked= attrs.isChecked,
     )
     if (isRich == false)
-      label(for="checkbox" + randomId + index).checkbox__item-text= text
+      label(for="checkbox" + randomId).checkbox__item-text= text
     if (isRich == true)
-      label(for="checkbox" + randomId + index).checkbox__item-text
+      label(for="checkbox" + randomId).checkbox__item-text
         p.checkbox__item-title= title
           span.checkbox__item-descr= text
 
