@@ -6,7 +6,7 @@
     display: flex;
     justify-content: space-between;
 
-    margin-bottom: 20px;
+    margin-bottom: 23px;
   }
   &__title {
     text-transform: uppercase;
@@ -38,9 +38,5 @@
   &::after,
   &::before {
     display: none;
-  }
-
-  &__info {
-    margin-bottom: 23px;
   }
 }
