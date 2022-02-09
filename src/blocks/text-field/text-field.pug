@@ -1,10 +1,24 @@
-mixin textField(title, placeholder, arrow)
+mixin textField(attrs = {})
+  - 
+    const {
+      type='text',
+      placeholder='',
+      arrow=false,
+      size='normal',
+      isPlaced=false,
+      textPlaced='This is pretty awesome'
+    } = attrs;
+
+    const classList = ['text-field__block'];
+    attrs.size === 'small' ? classList.push('text-field--small') : '';
   .text-field 
-    h4.text-field__title= title
-    fieldset.text-field__block
-      input.text-field__field(type="email", placeholder=placeholder)
-      if (arrow == true) 
+    fieldset(class=classList)
+      input.text-field__field(
+        type=attrs.type 
+        placeholder=placeholder,
+        class='text-field__field'
+        value= (isPlaced == true) ? textPlaced: ''
+      ) 
+      if (attrs.arrow == true) 
         span.text-field__arrow
 
-
-+textField('Title', 'placeHold', true)
