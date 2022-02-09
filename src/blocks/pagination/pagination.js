@@ -1,73 +1,12 @@
-// import './pagination.scss';
-// const paginationButtons = document.querySelector('.pagination__list');
-// const paginationDescription = document.querySelector('.pagination__descr');
-
-// const numberOfItems = 36;
-// const numberPerPage = 9;
-// const numberOfPages = Math.ceil(numberOfItems / numberPerPage);
-// let currentPage = 10;
-
-// const listArrayBtns = [];
-
-// for (let i = 0; i <= numberOfItems; i++) {
-//   listArrayBtns.push(
-//     `<li class="pagination__item"> <a class="pagination__item-link" href="#">${i}</a></li>`
-//   );
-// }
-
-// paginate();
-
-// function paginate() {
-//   buildPage(currentPage);
-//   buildButtons(currentPage, numberOfPages);
-// }
-
-// function buildPage(currentPage) {
-//   let minNumber = currentPage - 2;
-//   let maxNumber = currentPage + 2;
-//   if (minNumber <= 0) {
-//     minNumber = 1;
-//     maxNumber = 3;
-//   }
-//   console.log(minNumber, maxNumber);
-
-//   const exportArray = listArrayBtns.slice(minNumber, maxNumber + 1);
-//   exportArray.join(' ');
-//   console.log(exportArray);
-//   return exportArray;
-// }
-
-// function buildButtons(currentPage, numberOfPages) {
-//   const prevButton = `
-//   <li class="pagination__item">
-//     <a class="pagination__item-link" href="#">
-//       <img src=${ArrowImage} class="pagination__img pagination__img--left" alt="alt" />
-//     </a>
-//   </li>
-//   `;
-//   const nextButton = `
-//   <li class="pagination__item">
-//     <a class="pagination__item-link" href="#">
-//       <img src=${ArrowImage} class="pagination__img" alt="alt" />
-//     </a>
-//   </li>
-//   `;
-//   if (currentPage > 3) {
-//     paginationButtons.innerHTML += prevButton;
-//   }
-//   if (currentPage < numberOfPages - 3) {
-//     paginationButtons.innerHTML += nextButton;
-//   }
-// }
 import './pagination.scss';
 
 const paginationButtons = document.querySelector('.pagination__list');
 const paginationDescription = document.querySelector('.pagination__descr');
 
-const ArrowImage = require('./arrow_button.svg');
+const ArrowImage = require('./assets/arrow_button.svg');
 
-let totalItems = 153;
-let currentPage = 4;
+let totalItems = 180;
+let currentPage = 1;
 
 paginate(totalItems, currentPage);
 
@@ -105,7 +44,18 @@ function paginate(totalItems, currentPage) {
     } else {
       activePage = '';
     }
-    page += `<li class="pagination__item "> <a class="pagination__item-link ${activePage}" href="#">${pageLength}</a></li>`;
+    page += `<li class="pagination__item "> <a class="pagination__item-link" href="#">${pageLength}</a></li>`;
+
+    if (pageLength === afterPages) {
+      page += `
+        <li class="pagination__item">
+          <span class="pagination__dots">...</span>
+        </li>`;
+      page += `
+        <li class="pagination__item "> 
+          <a class="pagination__item-link" href="#">${totalPages}</a>
+        </li>`
+    }
   }
 
   if (currentPage < totalPages) {
@@ -119,9 +69,9 @@ function paginate(totalItems, currentPage) {
   }
 
   paginationButtons.innerHTML = page;
-  paginationDescription.innerHTML = `${currentPage - (currentPage % 12)} - ${
-    currentPage - (currentPage % 12) + 12
-  } из 100+ вариантов аренды`;
+  // paginationDescription.innerHTML = `${currentPage - (currentPage % 12)} - ${
+  //   currentPage - (currentPage % 12) + 12
+  // } из 100+ вариантов аренды`;
 
   paginationButtons.addEventListener('click', e => {
     if (e.target.classList[0] === 'pagination__item-link') {
