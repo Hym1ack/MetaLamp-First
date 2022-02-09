@@ -1,0 +1,389 @@
+extends ../layout/layout
+
+include ../../blocks/title/title
+
+include ../../blocks/text-field/text-field
+include ../../blocks/dropdown/dropdown
+include ../../blocks/date-dropdown/date-dropdown
+include ../../blocks/expandable-checkbox/expandable-checkbox
+include ../../blocks/feature/feature
+
+include ../../blocks/checkbox/checkbox
+include ../../blocks/radio/radio
+include ../../blocks/toggle/toggle
+include ../../blocks/like-btn/like-btn
+include ../../blocks/rate/rate
+include ../../blocks/comment/comment
+
+include ../../blocks/range-slider/range-slider
+include ../../blocks/button/button
+include ../../blocks/pagination/pagination
+include ../../blocks/bullet-list/bullet-list
+
+block body 
+  .form-elements__container
+    .form-elements__column
+      .text-field__default
+        +title({
+          headingLevel: 'h3',
+          headingText: 'Text Field',
+          marginBottom: 5,
+          addText: true,
+          rightText: 'default'
+        })
+        +textField({
+        placeholder: 'Email',
+        })
+      .text-field__focus
+        +title({
+          headingLevel: 'h3',
+          headingText: 'Text Field',
+          marginBottom: 5,
+          addText: true,
+          rightText: 'Hover / Focus'
+        })
+        +textField({
+          type: 'email',
+          placeholder: 'Email',
+          isPlaced: true,
+          textPlaced: 'This is pretty awesome'
+        })
+      
+      .dropdown-guests
+        +title({
+          headingLevel: 'h3',
+          headingText: 'Dropdown',
+          marginBottom: 5,
+        })
+        +dropdown({
+          rooms: false,
+          placeholder: 'Сколько гостей',
+          arrItems: ['Взрослые', 'Дети', 'Младенцы'],
+          arrCounts: [2, 1, 0],
+          controlPanel: true,
+        })
+      
+      .masked-text
+        +title({
+          headingLevel: 'h3',
+          headingText: 'masked text field',
+          marginBottom: 5,
+        })
+        +dateDropdown({
+          type: 'masked'
+        })
+      .dropdown-double
+        +dateDropdown({
+          type: 'range',
+          rangeTitles: ['date Dropdown', 'date Dropdown'],
+          rangeValues: ['ДД.ММ.ГГГГ', '19.08.2019']
+        })
+      .dropdown-filter
+        +title({
+          headingLevel: 'h3',
+          headingText: 'filter date dropdown',
+          marginBottom: 5,
+        })
+        +dateDropdown({
+          type: 'filter',
+          placeholder: '19 авг - 23 авг'
+        })
+      .text-field__subscribe
+        +title({
+          headingLevel: 'h3',
+          headingText: 'subscription text field',
+          marginBottom: 5,
+        })
+        +textField({
+          type: 'email',
+          placeholder: 'Email',
+          arrow: true,
+          size: 'small',
+        })
+
+      .dropdown-rooms
+        +title({
+          headingLevel: 'h3',
+          headingText: 'Dropdown',
+          marginBottom: 5,
+          addText: true,
+          rightText: 'default'
+        })
+        +dropdown({
+          width: 'small',
+          rooms: true, 
+          arrItems: ['спальни', 'кровати', 'ванные комнаты'],
+          arrCounts: [2, 2, 0]
+        })
+      .dropdown-rooms__expanded
+        +title({
+          headingLevel: 'h3',
+          headingText: 'Dropdown',
+          marginBottom: 5,
+          addText: true,
+          rightText: 'expanded'
+        })
+        +dropdown({
+        rooms: true, 
+        width: 'small',
+        arrItems: ['спальни', 'кровати', 'ванные комнаты'],
+        arrCounts: [2, 2, 0],
+        showMenu: true 
+      })
+        
+      .checkbox-expandable
+        +expandCheckboxList({
+          buttonText: 'expandable checkbox list',
+          listItems: [
+            'Завтрак', 
+            'Письменный стол', 
+            'Стул для кормления', 
+            'Кроватка', 
+            'Телевизор', 
+            'Шампунь']
+          })
+      .checkbox-expandable--open
+        +expandCheckboxList({
+          buttonText: 'expandable checkbox list',
+          listItems: [
+            'Завтрак', 
+            'Письменный стол', 
+            'Стул для кормления', 
+            'Кроватка', 
+            'Телевизор', 
+            'Шампунь'],
+          isOpen: true,
+          })
+      .features
+        +feature({
+          imageSrc: './../../images/features/emoticon.png',
+          title: 'Комфорт',
+          descr: 'Шумопоглощающие стены'
+        })
+        +feature({
+          imageSrc: './../../images/features/location_city.png',
+          title: 'Удобство',
+          descr: 'Окно в каждой из спален'
+        })
+        
+
+
+
+
+    .form-elements__column
+      .checkbox
+        +title({
+          headingLevel: 'h3',
+          headingText: 'Checkbox Buttons',
+          marginBottom: 16
+        })
+        +checkbox({
+          text: 'Можно курить'
+        })
+        +checkbox({
+          text: 'Можно с питомцами',
+          isChecked: true
+        })
+        +checkbox({
+          text: 'Можно пригласить гостей (до 10 человек)',
+          isChecked: true
+        })
+      .radio
+        +title({
+            headingLevel: 'h3',
+            headingText: 'Radio Buttons',
+            marginBottom: 16
+          })
+        +radio({
+          firstItem: 'Мужчина',
+          secondItem: 'Женщина',
+          name: 'gender',
+        })
+      .toggle
+        +title({
+          headingLevel: 'h3',
+          headingText: 'Toggle',
+          marginBottom: 16
+        })
+        +toggle({
+          text: 'Получать спецпредложения',
+          name: 'special',
+          actived: true,
+
+        })
+        +toggle({
+          text: 'Получать спецпредложения',
+          name: 'special',
+        })
+      .like 
+        +title({
+          headingLevel: 'h3',
+          headingText: 'like button',
+          marginBottom: 16
+        })
+        .like__btns
+          +like({
+            count: 2,
+          })
+          +like({
+            count: 12,
+            active: true
+          })
+      .rateButtons
+        +title({
+          headingLevel: 'h3',
+          headingText: 'rate button',
+          marginBottom: 16
+        })
+        +rateButtons({
+          count: 5,
+          actived: 4,
+        })
+        +rateButtons({
+          count: 5,
+          actived: 5,
+        })
+      .dropdown-guests__expanded
+        +title({
+          headingLevel: 'h3',
+          headingText: 'Dropdown',
+          marginBottom: 5,
+        })
+        +dropdown({
+        placeholder: 'Сколько гостей',
+        arrItems: ['взрослые', 'дети', 'младенцы'],
+        arrCounts: [0, 0, 0],
+        controlPanel: true,
+        showMenu: true 
+      })
+      .checkbox-rich 
+        +title({
+          headingLevel: 'h3',
+          headingText: 'rich Checkbox Buttons',
+          marginBottom: 16,
+        })
+        +checkbox({
+          title: 'Широкий коридор',
+          text: `Ширина коридоров в номере 
+            не менее 91 см.`,
+          isRich: true,
+        })
+
+        +checkbox({
+          title: 'Помощник для инвалидов',
+          text: `На 1 этаже вас встретит специалист 
+            и проводит до номера.`,
+          isRich: true,
+        })
+      .commentary 
+        +comment({
+          imageSrc:'./../../images/comments/person-1.png', 
+          imageAlt:'author',
+          likeCount:12,
+          likeActive: true,
+          author:'Мурад Сарафанов', 
+          text:'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.',
+          date:'5 дней назад',
+        })
+
+
+      
+    .form-elements__column
+      +rangeSlider('Range slider')
+      .buttons
+        +title({
+          headingLevel: 'h3',
+          headingText: 'buttons',
+          marginBottom: 16
+        })
+        .buttons__line
+          +button({
+            text: 'CLICK ME',
+            textColor: 'white',
+            width: 'normal',
+            fill: true,
+            disabled: false,
+          })
+          +button({
+            text: 'CLICK ME',
+            textColor: 'white',
+            width: 'normal',
+            fill: true,
+            disabled: true,
+          })
+        .buttons__line
+          +button({
+            text: 'CLICK ME',
+            textColor: 'purple',
+            width: 'normal',
+            border: true,
+            disabled: false,
+          })
+          +button({ 
+            text: 'CLICK ME',
+            textColor: 'purple',
+            width: 'normal',
+            border: true,
+            disabled: true,
+          })
+        .buttons__line.buttons__line--third
+          +button({ 
+            text: 'CLICK ME',
+            textColor: 'purple',
+            width: 'normal',
+            textDarken: true,
+            disabled: false,
+          })
+          +button({ 
+            text: 'CLICK ME',
+            textColor: 'purple',
+            width: 'normal',
+            textDarken: true,
+            disabled: true,
+          })
+        +button({ 
+          text: 'перейти к оплате',
+          textColor: 'white',
+          width: 'big',
+          fill: true,
+          disabled: false,
+          arrow: true,
+        })
+      .pagination-block 
+        +title({
+          headingLevel: 'h3',
+          headingText: 'pagination',
+          marginBottom: 16,
+        })
+        +pagination()
+      .dropdown-guests__expanded
+        +title({
+          headingLevel: 'h3',
+          headingText: 'Dropdown',
+          marginBottom: 5,
+        })
+        +dropdown({
+        placeholder: '3 гостя',
+        arrItems: ['взрослые', 'дети', 'младенцы'],
+        arrCounts: [2, 1, 0],
+        controlPanel: true,
+        showMenu: true 
+        })
+      .bulletlist-item 
+        +title({
+          headingLevel: 'h3',
+          headingText: 'bullet list',
+          marginBottom: 16,
+        })
+        +bulletList({
+          title: 'title',
+          items: ['Нельзя с питомцами', 'Без вечеринок и мероприятий', 'Время прибытия — после 13:00, а выезд до 12:00']
+        })
+    
+      
+
+
+
+
+      
+      

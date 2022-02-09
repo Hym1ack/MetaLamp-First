@@ -1,0 +1,112 @@
+.form-elements {
+  &__container {
+    margin: 124px auto 0 auto;
+    width: 1158px;
+    display: flex;
+  }
+
+  &__column {
+    width: 320px;
+  }
+  &__column:nth-child(2) {
+    margin-left: 126px;
+    margin-right: 72px;
+  }
+}
+
+.buttons {
+  margin-top: 44px;
+  width: 218px;
+  &__line {
+    margin-bottom: 29px;
+
+    display: flex;
+    justify-content: space-between;
+  }
+  &__line--third {
+    display: inline-block;
+    margin-bottom: 27px;
+
+    .btn {
+      width: 61px;
+
+      line-height: 20px;
+    }
+    .btn:first-child {
+      margin-right: 21px;
+    }
+  }
+}
+
+.date-dropdown {
+  margin-bottom: 40px;
+}
+
+
+
+// 1
+
+.text-field__default,
+.text-field__focus {
+  margin-bottom: 20px;
+}
+.dropdown-guests {
+  margin-bottom: 23px;
+}
+.text-field__subscribe {
+  margin-top: 41px;
+  margin-bottom: 100px;
+}
+.dropdown-rooms {
+  width: 266px;
+}
+.dropdown-rooms__expanded {
+  width: 266px;
+  margin-top: 20px;
+  margin-bottom: 170px;
+}
+.checkbox-expandable {
+  margin-bottom: 30px;
+}
+.features {
+  margin-top: 105px;
+}
+
+// 2
+.expand-checkbox {
+  margin-bottom: 20px;
+}
+
+.radio {
+  margin-top: 41px;
+}
+.toggle {
+  margin-top: 36px;
+}
+.like {
+  margin-top: 42px;
+}
+.rateButtons {
+  margin-top: 40px;
+  margin-bottom: 193px;
+}
+.like__btns {
+  width: 90px;
+
+  display: flex;
+  justify-content: space-between;
+}
+.commentary {
+  margin-top: 234px;
+}
+
+// 3
+
+.pagination-block {
+  margin-left: 1px;
+  margin-top: 41px;
+  margin-bottom: 232px;
+}
+.dropdown-guests__expanded {
+  margin-bottom: 256px;
+}
