@@ -1,14 +1,51 @@
-mixin expandCheckboxList(countNames)
+mixin expandCheckboxList(attrs = {})
+  - 
+    const {
+      buttonText='checkbox list',
+      listItems=[],
+      isOpen= false,
+    } = attrs;
+
+    const randomId = Math.floor(Math.random() * Date.now());
+    const classList = ['expand-checkbox__list'];
+    const classImage = ['expand-checkbox__img']
+    if (attrs.isOpen === true) { 
+      classList.push('expand-checkbox__open');
+      classImage.push('expand-checkbox__img--rotate')
+    };
+
   .expand-checkbox
-    button.expand-checkbox__btn(type="submit") expandable checkbox list
-      img.expand-checkbox__img(src="../../../images/expand_more.svg", alt="alt")
-    ul.expand-checkbox__list
-      each count, index in countNames
+    button.expand-checkbox__btn(type="submit")= attrs.buttonText
+      img.expand-checkbox__img(
+        class=classImage
+        src="../../../images/expand_more.svg", 
+        alt="alt"
+        )
+    ul(class=classList)
+      each count in attrs.listItems
         li.expand-checkbox__item
-          input(type="checkbox", name="smoking" id='checkbox-' + index).expand-checkbox__item-box 
-          label(for="checkbox-" + index).expand-checkbox__item-text= count
+          input(
+            type="checkbox", 
+            name="smoking" 
+            id='expand-checkbox-' + randomId,
+            class='expand-checkbox__item-box'
+          )
+          label(
+            for="expand-checkbox-" + randomId
+            class='expand-checkbox__item-text'
+          )= count
+
+//- mixin expandCheckboxList(countNames)
+//-   .expand-checkbox
+//-     button.expand-checkbox__btn(type="submit") expandable checkbox list
+//-       img.expand-checkbox__img(src="../../../images/expand_more.svg", alt="alt")
+//-     ul.expand-checkbox__list
+//-       each count, index in countNames
+//-         li.expand-checkbox__item
+//-           input(type="checkbox", name="smoking" id='checkbox-' + index).expand-checkbox__item-box 
+//-           label(for="checkbox-" + index).expand-checkbox__item-text= count
 
 
 
-+expandCheckboxList(['Завтрак', 'Письменный стол', 'Стул для кормления', 'Кроватка', 'Телевизор', 'Шампунь'])
-+expandCheckboxList(['Завтрак', 'Письменный стол', 'Стул для кормления', 'Кроватка', 'Телевизор', 'Шампунь'])
+//- +expandCheckboxList(['Завтрак', 'Письменный стол', 'Стул для кормления', 'Кроватка', 'Телевизор', 'Шампунь'])
+//- +expandCheckboxList(['Завтрак', 'Письменный стол', 'Стул для кормления', 'Кроватка', 'Телевизор', 'Шампунь'])
