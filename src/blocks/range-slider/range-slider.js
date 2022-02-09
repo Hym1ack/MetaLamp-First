@@ -9,10 +9,10 @@ let sliderValue = document.querySelector('.range-slider__value');
 noUiSlider.create(slider, {
   start: [5000, 10000],
   connect: true,
-  step: 500,
+  step: 250,
   range: {
     min: [0],
-    max: [15000],
+    max: [15750],
   },
 });
 
