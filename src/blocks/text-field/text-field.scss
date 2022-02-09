@@ -7,15 +7,24 @@
 
     border: none;
   }
+  &--small {
+    width: 267px;
+  }
   &__field {
     width: 100%;
     height: 44px;
 
-    padding: 13px 15px;
+    padding: 13px 14px;
 
     border: 1px solid #1f204140;
     border-radius: 4px;
+
+    color: rgba(31, 32, 65, 0.75);
+    letter-spacing: -0.01rem;
+    font-size: 14px;
+    line-height: 24px;
   }
+  
   &__arrow {
     position: absolute;
     top: 14px;
@@ -36,12 +45,8 @@
     line-height: 18px;
   }
 
-  &__field[type='email']:focus,
-  &__field[type='email']:hover {
+  &__field:focus,
+  &__field:hover {
     border: 1px solid rgba(31, 32, 65, 0.5);
-
-    color: rgba(31, 32, 65, 0.75);
-    font-size: 14px;
-    line-height: 24px;
   }
 }
