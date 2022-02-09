@@ -1,34 +1,35 @@
-mixin dropdown(type, arr)
-  if (type == 'guests')
-    .dropdown
-      h4.dropdown__title dropdown
-      button.dropdown__btn(type='submit') Сколько гостей
-      ul.dropdown__menu
-        each item in arr
-          li.dropdown__item 
-            p.dropdown__item-text= item
-            .dropdown__item-counter
-              .dropdown__item-minus -
-              .dropdown__item-count 0
-              .dropdown__item-plus +
+mixin dropdown(attrs = {})
+  -
+    const {
+      width='default',
+      rooms=false,
+      placeholder='',
+      arrItems=[],
+      arrCounts=[],
+      controlPanel=false,
+      showMenu=false
+    } = attrs;
+
+    const classBtn = ['dropdown__btn']
+    const classMenu = ['dropdown__menu']
+
+    attrs.width === 'small' ? classBtn.push('dropdown__btn--small') : '';
+    attrs.width === 'small' ? classMenu.push('dropdown__menu--small') : '';
+    
+    attrs.rooms === true ? classBtn.push('dropdown__rooms'): '';
+    attrs.showMenu === true ? classMenu.push('dropdown__menu--show'): '';
+
+  .dropdown
+    button(type='submit' class=classBtn)= placeholder
+    ul(class=classMenu)
+      each item,index in attrs.arrItems
+        li.dropdown__item 
+          p.dropdown__item-text= item
+          p.dropdown__item-counter
+            span.dropdown__item-minus -
+            span.dropdown__item-count= arrCounts[index]
+            span.dropdown__item-plus +
+      if controlPanel == true
         li.dropdown__control
           a.dropdown__reset Очистить
           a.dropdown__apply Применить
-  else if (type == 'rooms')
-    .dropdown
-      h4.dropdown__title dropdown
-      button.dropdown__btn.dropdown__rooms(type='submit') 
-      ul.dropdown__menu
-        each item in arr
-          li.dropdown__item 
-            p.dropdown__item-text= item
-            .dropdown__item-counter
-              .dropdown__item-minus -
-              .dropdown__item-count 2
-              .dropdown__item-plus +
-
-
-
-+dropdown('guests', ['Взрослые', 'Дети', 'Младенцы'])
-
-+dropdown('rooms', ['спальни', 'кровати', 'ванные комнаты'])
