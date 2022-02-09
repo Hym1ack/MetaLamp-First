@@ -1,10 +1,9 @@
 .checkbox {
-
   &__items {
     max-width: 230px;
   }
   &__item {
-    margin-bottom: 10px;
+    margin-bottom: 11px;
   }
   &__item-box {
     position: absolute;
@@ -14,6 +13,7 @@
     min-height: 20px;
   }
   &__item-text {
+    width: 235px;
     display: flex;
     align-items: flex-start;
     user-select: none;
@@ -32,6 +32,8 @@
   &__item-descr {
     margin-top: 5px;
     width: 223px;
+
+    white-space: pre-line;
     font-size: 12px;
     line-height: 14px;
     font-weight: 400;
