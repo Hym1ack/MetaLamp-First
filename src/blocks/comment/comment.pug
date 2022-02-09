@@ -1,12 +1,24 @@
-mixin comment(author, image, text)
+mixin comment(attrs = {})
+  -
+    const {
+      author='', 
+      imageSrc='', 
+      imageAlt='',
+      likeCount='',
+      likeActive=false,
+      text='',
+      date='',
+    } = attrs 
+
   .comment
     .comment__info
-      img.comment__img(src=`../../images/comments/auth1.jpg` alt=alt)
-      +like(12, 'comment__likes')
+      img.comment__img(src=attrs.imageSrc alt=attrs.imageAlt)
+      +like({
+        count: attrs.likeCount, 
+        active: attrs.likeActive,
+      })
     .comment__content 
-      h6.comment__author= author
-      p.comment__date 5 дней назад
-      p.comment__text= text
-
-+comment('Мурад Сарафанов', 'comments/auth1.png', 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.')
+      h6.comment__author= attrs.author
+      p.comment__date= attrs.date
+      p.comment__text= attrs.text
 
