@@ -1,27 +1,47 @@
-mixin dateDropdown(typeDate)
-  if (typeDate == 'masked')
-    .date-dropdown
-      .date-dropdown__item-masked
-        h4.date-dropdown__title masked text field
-        input(type="text" placeholder="ДД.ММ.ГГГГ").date-dropdown__field.date-dropdown__field--masked
-  else if (typeDate == 'range')
-    .date-dropdown
-      .date-dropdown__item-range
-        h4.date-dropdown__title date dropdown
-        input(type="text" placeholder="ДД.ММ.ГГГГ").date-dropdown__field.date-dropdown__field--range.date-dropdown--start
-      .date-dropdown__item-range
-        h4.date-dropdown__title date dropdown
-        input(type="text" placeholder="ДД.ММ.ГГГГ").date-dropdown__field.date-dropdown__field--range.date-dropdown--end
-  else if (typeDate == 'filter')
-    .date-dropdown
-      .date-dropdown__item-filter
-        h4.date-dropdown__title filter date dropdown
-        input(type="text" placeholder="ДД.ММ.ГГГГ").date-dropdown__field.date-dropdown__field--filter
-    
+mixin dateDropdown(attrs = {})
+  -
+    const {
+      placeholder='ДД.ММ.ГГГГ',
+      rangeValues=[],
+      type='range',
+      rangeTitles=[],
+    } = attrs;
+
+    const classInput = ['date-dropdown__field']
+    const classField = []
+    if (attrs.type === 'masked') { 
+      classInput.push('date-dropdown__field--masked'); 
+      classField.push('date-dropdown__item-masked');
+    };
+    if (attrs.type === 'filter') { 
+      classInput.push('date-dropdown__field--filter'); 
+      classField.push('date-dropdown__item-filter');
+    };
 
 
-+dateDropdown('masked')
-
-+dateDropdown('range')
-
-+dateDropdown('filter')
+  .date-dropdown
+    .date-dropdown__box
+      if (type === 'range')
+        fieldset.date-dropdown__item-range
+          h3.mb5.title__h3= attrs.rangeTitles[0]
+          input(
+            type="text" 
+            placeholder=placeholder
+            class="date-dropdown__field date-dropdown__field--range date-dropdown--start",
+            value=attrs.rangeValues[0]
+          )
+        fieldset.date-dropdown__item-range
+          h3.mb5.title__h3= attrs.rangeTitles[1]
+          input(
+            type="text" 
+            placeholder=placeholder
+            class="date-dropdown__field date-dropdown__field--range date-dropdown--end",
+            value=attrs.rangeValues[1]
+          )
+      else
+        fieldset(class=classField)
+          input(
+            type="text" 
+            placeholder=placeholder
+            class=classInput
+          )
