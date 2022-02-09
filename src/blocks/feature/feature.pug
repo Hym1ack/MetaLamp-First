@@ -1,0 +1,14 @@
+mixin feature(attrs = {})
+  - 
+    const {
+      imageSrc='',
+      title='',
+      descr=''
+    } = attrs 
+
+  .feature 
+    .feature__block
+      img.feature__img(src=attrs.imageSrc, alt="alt") 
+    .feature__block
+      h4.feature__title= attrs.title 
+      p.feature__descr= attrs.descr

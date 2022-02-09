@@ -1,0 +1,38 @@
+.feature {
+  width: 280px;
+  
+  display: flex;
+  flex-direction: row;
+
+  position: relative;
+  margin-bottom: 41px;
+
+  &__block {
+    height: 48px;
+  }
+  &__img {
+    margin-right: 13px;
+    margin-left: 4px;
+    width: 40px;
+    height: 40px;
+  }
+  &__title {
+    font-weight: 700;
+    color: rgba(31, 32, 65, 0.75);
+  }
+  &__descr {
+    padding-top: 5px;
+  }
+
+  &::after {
+    content: '';
+    width: 100%;
+
+    position: absolute;
+    bottom: -17px;
+    left: 0;
+    right: 0;
+
+    border-bottom: 1px solid rgba(31, 32, 65, 0.1);
+  }
+}
